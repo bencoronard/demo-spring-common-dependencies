@@ -1,1 +1,33 @@
+plugins {
+  id 'java-platform'
+  id 'maven-publish'
+}
 
+group = 'dev.hireben.demo'
+version = 'latest'
+description = 'Demo Spring Boot common BOM project'
+
+javaPlatform {
+  allowDependencies()
+}
+
+dependencies {
+  api platform('org.springframework.boot:spring-boot-dependencies:3.5.7')
+  api platform('org.springframework.cloud:spring-cloud-dependencies:2025.0.0')
+
+  constraints {
+    api 'io.jsonwebtoken:jjwt-api:0.13.0'
+    api 'io.jsonwebtoken:jjwt-impl:0.13.0'
+    api 'io.jsonwebtoken:jjwt-jackson:0.13.0'
+    
+    api 'dev.hireben.demo:common-libs:latest'
+  }
+}
+
+publishing {
+  publications {
+		maven(MavenPublication) {
+			from components.javaPlatform
+		}
+	}
+}
