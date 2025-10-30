@@ -11,7 +11,7 @@ javaPlatform {
   allowDependencies()
 }
 
-dependenucies {
+dependencies {
   api platform('org.springframework.boot:spring-boot-dependencies:3.5.7')
   api platform('org.springframework.cloud:spring-cloud-dependencies:2025.0.0')
 
