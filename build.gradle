@@ -23,3 +23,12 @@ dependencies {
     api 'dev.hireben.demo:common-libs:latest'
   }
 }
+
+
+publishing {
+  publications {
+		maven(MavenPublication) {
+			from components.javaPlatform
+		}
+	}
+}
